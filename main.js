@@ -1,4 +1,3 @@
-console.log('hello world');
 let humanScore = 0;
 let comptuerScore = 0;
 
@@ -20,3 +19,38 @@ function getHumanChoice(parm1){
     return correctParam
 }
 // console.log(getHumanChoice(prompt("rock paper or scissors?")));
+
+//one-round game logic
+function playRound(humanChoice,ComputerChoice){
+    switch (humanChoice) {
+        case "rock":
+            switch (ComputerChoice) {
+                case "rock":
+                    return "it's a tie! no one get points";
+                case "paper":
+                    return "You lose! Paper beats rock :("
+                case "scissors":
+                    return "You win! Rock beats scissors ;)";
+            }
+        case "paper":
+            switch (ComputerChoice) {
+                case "rock":
+                    return "You win! Paper beats rock ;)";
+                case "paper":
+                    return "it's a tie! no one get points"
+                case "scissors":
+                    return "You lose! Scissors beats paper :(";
+            }
+        case "scissors":
+            switch (ComputerChoice) {
+                case "rock":
+                    return "You lose! Rock beats scissors :(";
+                case "paper":
+                    return "You win! Scissors beats paper ;)"
+                case "scissors":
+                    return "it's a tie! no one get points";
+            }                
+        }
+    }
+
+console.log(playRound(getHumanChoice(prompt("rock paper or scissors")),getComputerChoice(Math.random())));
