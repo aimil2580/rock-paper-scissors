@@ -2,12 +2,13 @@ let humanScore = 0;
 let comptuerScore = 0;
 
 //function for pc logic
-
 function getComputerChoice(){
     let parm1 = Math.random();
-    if (parm1 >= 0 && parm1 < 0.33){
+    parm1 = parm1*3;
+    parm1 = Math.floor(parm1);
+    if (parm1 == 0){
         return "rock"
-    }else if (parm1 >= 0.33 && parm1 < 0.66){
+    }else if (parm1 == 1){
            return "paper"
     }else{
         return "scissors"
@@ -24,7 +25,7 @@ function getHumanChoice(parm1){
     if (correctParam == "p"){
         return "paper";
     }
-    if (comptuerScore == "s"){
+    if (correctParam == "s"){
         return "scissors";
     }
     return correctParam;
