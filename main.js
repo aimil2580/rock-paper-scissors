@@ -17,19 +17,19 @@ function getComputerChoice(){
 
 
 //fuction for human logic
-function getHumanChoice(parm1){
-    let correctParam = parm1.toLowerCase();
-    if (correctParam == "r"){
-        return "rock";
-    }
-    if (correctParam == "p"){
-        return "paper";
-    }
-    if (correctParam == "s"){
-        return "scissors";
-    }
-    return correctParam;
-}
+// function getHumanChoice(parm1){
+//     let correctParam = parm1.toLowerCase();
+//     if (correctParam == "r"){
+//         return "rock";
+//     }
+//     if (correctParam == "p"){
+//         return "paper";
+//     }
+//     if (correctParam == "s"){
+//         return "scissors";
+//     }
+//     return correctParam;
+// }
 
 //one-round game logic
 function playRound(humanChoice,ComputerChoice){
@@ -71,16 +71,33 @@ function playRound(humanChoice,ComputerChoice){
     }
 
 
-function playGame(){
-    while (humanScore !=5 && comptuerScore !=5 ){
-        console.log(playRound(getHumanChoice(prompt("rock paper or scissors")),getComputerChoice()));
-        console.log("You:",humanScore,"Computer:",comptuerScore)
-    }
-} 
+// function playGame(){
+//     while (humanScore !=5 && comptuerScore !=5 ){
+//         console.log(playRound(getHumanChoice(prompt("rock paper or scissors")),getComputerChoice()));
+//         console.log("You:",humanScore,"Computer:",comptuerScore)
+//     }
+// } 
+let humanChoice="";
+let playerRock = document.querySelector("#rock")
+playerRock.addEventListener("click" ,  () => {
+    humanChoice = "rock";
+})
 
-console.log(playGame());
-if (humanScore > comptuerScore){
-    console.log("You won!");
-}else{
-    console.log("You lost. :(")
-}
+let playerPaper = document.querySelector("#paper")
+playerPaper.addEventListener("click" ,  () => {
+    humanChoice = "paper";
+})
+
+let playerScissors = document.querySelector("#scissors")
+playerScissors.addEventListener("click" ,  () => {
+    humanChoice = "scissors";
+})
+
+let score = document.querySelector(".score");
+score.textContent = `${humanScore} - ${comptuerScore}`
+// console.log(playGame());
+// if (humanScore > comptuerScore){
+//     console.log("You won!");
+// }else{
+//     console.log("You lost. :(")
+// }
