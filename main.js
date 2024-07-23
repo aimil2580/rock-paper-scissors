@@ -1,7 +1,9 @@
 let humanScore = 0;
 let comptuerScore = 0;
 let score = document.querySelector(".score");
-
+let messageBox = document.querySelector(".winLoseMes")
+const win = "Game over, YOU WIN!";
+const lose = "Game over, YOU LOSE :((";
 // let humanChoice="";
 
 
@@ -21,82 +23,103 @@ function getComputerChoice() {
 }
 
 
-//fuction for human logic
+//one round logic with human interaction
 function getHumanChoice() {
     let playerRock = document.querySelector("#rock")
     playerRock.addEventListener("click", () => {
-        return "rock";
+        if (humanScore != 5 && comptuerScore != 5) {
+            console.log(humanScore, comptuerScore)
+            switch (getComputerChoice()) {
+                case "rock":
+                    messageBox.textContent = "it's a tie! no one gets points";
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+                case "paper":
+                    comptuerScore++;
+                    if (comptuerScore == 5) {
+                        messageBox.textContent = lose
+                    } else {
+                        messageBox.textContent = "You lose! Paper beats rock :(";
+                    }
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+                case "scissors":
+                    humanScore++;
+                    if (humanScore == 5) {
+                        messageBox.textContent = win
+                    } else {
+                        messageBox.textContent = "You win! Rock beats scissors ;)";
+                    }
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+            }
+        }
     })
 
     let playerPaper = document.querySelector("#paper")
     playerPaper.addEventListener("click", () => {
-        return "paper";
+        if (humanScore != 5 && comptuerScore != 5) {
+            console.log(humanScore, comptuerScore)
+            switch (getComputerChoice()) {
+                case "rock":
+                    humanScore++;
+                    if (humanScore == 5){
+                        messageBox.textContent = win
+                    } else {
+                        messageBox.textContent = "You win! Paper beats rock ;)";
+                    }
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+                case "paper":
+                    messageBox.textContent = "it's a tie! no one gets points"
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+                case "scissors":
+                    comptuerScore++;
+                    if (comptuerScore == 5){
+                        messageBox.textContent = lose
+                    } else {
+                        messageBox.textContent = "You lose! Scissors beats paper :(";
+                    }
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+            }
+        }
     })
 
     let playerScissors = document.querySelector("#scissors")
     playerScissors.addEventListener("click", () => {
-        return "scissors";
+        if (humanScore != 5 && comptuerScore != 5) {
+            console.log(humanScore, comptuerScore)
+            switch (getComputerChoice()) {
+                case "rock":
+                    comptuerScore++;
+                    if (comptuerScore == 5){
+                        messageBox.textContent = lose
+                    }
+                    messageBox.textContent = "You lose! Rock beats scissors :(";
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+                case "paper":
+                    humanScore++;
+                    if (humanScore == 5){
+                        messageBox.textContent = win
+                    } else {
+                        messageBox.textContent = "You win! Scissors beats paper ;)"
+                    }
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+                case "scissors":
+                    messageBox.textContent = "it's a tie! no one gets points";
+                    score.textContent = `${humanScore} - ${comptuerScore}`;
+                    break;
+            }
+        }
     })
 }
 
-//one-round game logic
-function playRound(humanChoice, ComputerChoice) {
-    switch (humanChoice) {
-        case "rock":
-            switch (ComputerChoice) {
-                case "rock":
-                    return "it's a tie! no one get points";
-                case "paper":
-                    comptuerScore++;
-                    return "You lose! Paper beats rock :("
-                case "scissors":
-                    humanScore++;
-                    return "You win! Rock beats scissors ;)";
-            }
-        case "paper":
-            switch (ComputerChoice) {
-                case "rock":
-                    humanScore++;
-                    return "You win! Paper beats rock ;)";
-                case "paper":
-                    return "it's a tie! no one get points"
-                case "scissors":
-                    comptuerScore++;
-                    return "You lose! Scissors beats paper :(";
-            }
-        case "scissors":
-            switch (ComputerChoice) {
-                case "rock":
-                    comptuerScore++;
-                    return "You lose! Rock beats scissors :(";
-                case "paper":
-                    humanScore++;
-                    return "You win! Scissors beats paper ;)"
-                case "scissors":
-                    return "it's a tie! no one get points";
-            }
-    }
-}
 
 
-function playGame() {
-    while (humanScore != 5 && comptuerScore != 5) {
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        score.textContent = `${humanScore} - ${comptuerScore}`;
-    }
-}
+console.log(getHumanChoice())
+console.log(humanScore, comptuerScore)
 
-
-//i have to make the one game round to be intergrated with humeaCHoice.
-//like when i click on rock the rest has to be smth like case(compluter choice...)
-//next i ll have a ready humanchoice so i just compare it with pc choice.
- 
-
-
-
-// console.log(playGame());
-// if (humanScore > comptuerScore){
-//     console.log("You won!");
-// }else{
-//     console.log("You lost. :(")
-// }
