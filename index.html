@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,40 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
+
 <body>
+    <button onClick="window.location.reload();">PLAY AGAIN</button>
     <h1>Rock,Paper or Scissors?</h1>
     <div class="score"></div>
     <div class="winLoseMes"></div>
     <div class="elements">
         <div id="rock">
             <img src="imgs/rock.png" alt="a rock image">
-               <p>Rock</p> 
+            <p>Rock</p>
         </div>
         <div id="paper">
             <img src="imgs/paper.png" alt="a paper image">
-                <p>Paper</p>
+            <p>Paper</p>
         </div>
         <div id="scissors">
             <img src="imgs/scissors.png" alt="a scissors image">
-               <p>Scissors</p> 
+            <p>Scissors</p>
         </div>
     </div>
     <div class="plays">
-        <div class="player"></div>
-        <div class="computer"></div>
+        <div class="player">
+            <p>Your last move</p>
+            <div class="pcol">
+               
+            </div>
+        </div>
+        <div class="computer">
+            <p>Computers last move</p>
+            <div class="ccol">
+               
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

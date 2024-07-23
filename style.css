@@ -7,13 +7,13 @@
     margin: 0;
 }
 
-h1{
+h1 {
     font-size: 40px;
     text-align: center;
-    margin: 2em 0em;
+    margin-bottom: 1.6em;
 }
 
-.elements{
+.elements {
     display: flex;
     justify-content: space-evenly;
     flex-shrink: 0.7;
@@ -22,7 +22,7 @@ h1{
     /* padding: 1em; */
     flex-wrap: wrap;
 
-    div{
+    div {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -32,22 +32,72 @@ h1{
         font-size: 25px;
         margin: 1.5em;
 
-        img{
+        img {
             width: 100%;
             border-radius: 7px;
         }
     }
-    div:hover{
-        margin-top: 0.6em;       
+
+    div:hover {
+        margin-top: 0.6em;
         border-radius: 7px;
     }
 
-    p{
+    p {
         margin: 0.5em;
     }
 }
 
-.plays{
+.score,.winLoseMes{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+
+.score{
+    letter-spacing: 8px;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.winLoseMes{
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.plays {
+    display: flex;
+    gap: 5em;
+    justify-content: center;
+
+    p {
+        font-size: 32px;
+        font-weight: 450;
+        margin: 0.5em;
+    }
+    .pcol,
+    .ccol {
+        display: flex;
+        gap: 1em;
+        flex-direction: column-reverse;
+    }
+
+    .moves {
+        color: black;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: none;
+    border: 0.1em solid black;
+    background-color: rgba(230, 218, 204, 0.863);
+    font-weight: 600;
+    box-shadow: 12px 6px 2px rgba(206, 183, 156, 0.863);
 }
