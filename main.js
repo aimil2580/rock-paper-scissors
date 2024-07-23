@@ -1,38 +1,46 @@
 let humanScore = 0;
 let comptuerScore = 0;
+let score = document.querySelector(".score");
+
+// let humanChoice="";
+
+
 
 //function for pc logic
-function getComputerChoice(){
+function getComputerChoice() {
     let parm1 = Math.random();
-    parm1 = parm1*3;
+    parm1 = parm1 * 3;
     parm1 = Math.floor(parm1);
-    if (parm1 == 0){
+    if (parm1 == 0) {
         return "rock"
-    }else if (parm1 == 1){
-           return "paper"
-    }else{
+    } else if (parm1 == 1) {
+        return "paper"
+    } else {
         return "scissors"
     }
 }
 
 
 //fuction for human logic
-// function getHumanChoice(parm1){
-//     let correctParam = parm1.toLowerCase();
-//     if (correctParam == "r"){
-//         return "rock";
-//     }
-//     if (correctParam == "p"){
-//         return "paper";
-//     }
-//     if (correctParam == "s"){
-//         return "scissors";
-//     }
-//     return correctParam;
-// }
+function getHumanChoice() {
+    let playerRock = document.querySelector("#rock")
+    playerRock.addEventListener("click", () => {
+        return "rock";
+    })
+
+    let playerPaper = document.querySelector("#paper")
+    playerPaper.addEventListener("click", () => {
+        return "paper";
+    })
+
+    let playerScissors = document.querySelector("#scissors")
+    playerScissors.addEventListener("click", () => {
+        return "scissors";
+    })
+}
 
 //one-round game logic
-function playRound(humanChoice,ComputerChoice){
+function playRound(humanChoice, ComputerChoice) {
     switch (humanChoice) {
         case "rock":
             switch (ComputerChoice) {
@@ -66,35 +74,26 @@ function playRound(humanChoice,ComputerChoice){
                     return "You win! Scissors beats paper ;)"
                 case "scissors":
                     return "it's a tie! no one get points";
-            }                
-        }
+            }
     }
+}
 
 
-// function playGame(){
-//     while (humanScore !=5 && comptuerScore !=5 ){
-//         console.log(playRound(getHumanChoice(prompt("rock paper or scissors")),getComputerChoice()));
-//         console.log("You:",humanScore,"Computer:",comptuerScore)
-//     }
-// } 
-let humanChoice="";
-let playerRock = document.querySelector("#rock")
-playerRock.addEventListener("click" ,  () => {
-    humanChoice = "rock";
-})
+function playGame() {
+    while (humanScore != 5 && comptuerScore != 5) {
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        score.textContent = `${humanScore} - ${comptuerScore}`;
+    }
+}
 
-let playerPaper = document.querySelector("#paper")
-playerPaper.addEventListener("click" ,  () => {
-    humanChoice = "paper";
-})
 
-let playerScissors = document.querySelector("#scissors")
-playerScissors.addEventListener("click" ,  () => {
-    humanChoice = "scissors";
-})
+//i have to make the one game round to be intergrated with humeaCHoice.
+//like when i click on rock the rest has to be smth like case(compluter choice...)
+//next i ll have a ready humanchoice so i just compare it with pc choice.
+ 
 
-let score = document.querySelector(".score");
-score.textContent = `${humanScore} - ${comptuerScore}`
+
+
 // console.log(playGame());
 // if (humanScore > comptuerScore){
 //     console.log("You won!");
